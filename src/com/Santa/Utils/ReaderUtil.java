@@ -14,14 +14,12 @@ import java.util.stream.Collectors;
 public class ReaderUtil {
 
 
-    public static List<Gift> readGifts(){
+    public static List<Gift> readGiftLocations(){
 
         String pathToGift = "data" + java.io.File.separator + "gifts.csv";
 
         try (BufferedReader tspFileReader = Files.newBufferedReader(Paths.get(pathToGift), Charset.forName("UTF-8"))) {
             List<String> lines = Files.readAllLines(Paths.get(pathToGift));
-            //List<String> header = lines.subList(0, 2);
-
 
 
             List<Gift> giftList = lines.subList(1, lines.size()).stream().map(line -> line.split(","))
